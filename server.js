@@ -18,40 +18,40 @@ app.configure(function() {
 });
 
 
-app.get('/CPUTemp', function (req, res) {
-  // executes `pwd`
-  child = exec("./scripts/temperatura.sh", function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-    res.end(stdout)
-  });
+app.get('/CPUTemp', function(req, res) {
+    // executes `pwd`
+    child = exec("./scripts/temperatura.sh", function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout)
+    });
 })
 
-app.get('/varCPU', function (req, res) {
-  // executes `pwd`
-  child = exec("./scripts/var_CPU.sh", function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-    res.end(stdout)
-  });
+app.get('/varCPU', function(req, res) {
+    // executes `pwd`
+    child = exec("./scripts/var_CPU.sh", function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout)
+    });
 })
 
-app.get('/hostname', function (req, res) {
-  // executes `pwd`
-  child = exec("hostname", function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-    res.end(stdout)
-  });
+app.get('/hostname', function(req, res) {
+    // executes `pwd`
+    child = exec("hostname", function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout)
+    });
 })
 
 // Carga una vista HTML simple donde irá nuestra Single App Page
@@ -60,11 +60,11 @@ app.get('*', function(req, res) {
     res.sendfile('./index.html');
 });
 
-var server = app.listen(8081, function () {
+var server = app.listen(8081, function() {
 
-  var host = server.address().address
-  var port = server.address().port
+    var host = server.address().address
+    var port = server.address().port
 
-  console.log("Servidor rest arrancado en: http://%s:%s", host, port)
+    console.log("Servidor rest arrancado en: http://%s:%s", host, port)
 
 })
