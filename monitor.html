@@ -51,7 +51,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body ng-controller="mainController" class="hold-transition skin-blue sidebar-mini">
+<body ng-controller="mainController" ng-init="init()" class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -62,7 +62,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">Cubi</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Cubieboard</b></span>
+      <span class="logo-lg"><b>{{ hostname }}</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -140,11 +140,11 @@ desired effect
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-cogs"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Uso CPU</span>
-              <span class="info-box-number">{{ varCPU }}</span>
+              <span class="info-box-number">{{ varCPU }}<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -153,7 +153,7 @@ desired effect
         <!-- /.col -->
       </div>
 
-      <a class="btn btn-app" ng-click="cargaTemperatua()">
+      <a class="btn btn-app" ng-click="cargaDatosPantalla()">
         <i class="fa fa-repeat"></i> Recargar Datos
       </a>
 

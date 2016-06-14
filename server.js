@@ -42,6 +42,18 @@ app.get('/varCPU', function (req, res) {
   });
 })
 
+app.get('/hostname', function (req, res) {
+  // executes `pwd`
+  child = exec("hostname", function (error, stdout, stderr) {
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+    res.end(stdout)
+  });
+})
+
 // Carga una vista HTML simple donde irá nuestra Single App Page
 // Angular Manejará el Frontend
 app.get('*', function(req, res) {
