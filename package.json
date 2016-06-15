@@ -1,10 +1,10 @@
 {
-  "name": "admin-lte",
-  "version": "2.3.3",
+  "name": "cubieboard-monitor",
+  "version": "1.0.0",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/almasaeed2010/AdminLTE.git"
+    "url": "git://github.com/juaalta/cubieboard-monitor.git"
   },
   "license": "MIT",
   "devDependencies": {
