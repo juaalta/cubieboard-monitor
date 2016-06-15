@@ -13,17 +13,6 @@ var methodOverride = require('method-override');
  * Configuración
  */
 
-/*app.configure(function() {
-    // Localización de los ficheros estÃ¡ticos
-    app.use(express.static(__dirname + '/'));
-    // Muestra un log de todos los request en la consola
-    app.use(express.logger('dev'));
-    // Permite cambiar el HTML con el método POST
-    app.use(express.bodyParser());
-    // Simula DELETE y PUT
-    app.use(express.methodOverride());
-});*/
-
 //File localization
 app.use(express.static(__dirname + '/'));
 // Show a log of every request in the terminal console
@@ -42,8 +31,6 @@ app.use(methodOverride());
 //Obtención de la temperatura general de la CPU
 app.get('/CPUTemp', function(req, res) {
     child = exec("./scripts/temperatura.sh", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -54,8 +41,6 @@ app.get('/CPUTemp', function(req, res) {
 //Obtención del uso general de la CPU
 app.get('/varCPU', function(req, res) {
     child = exec("./scripts/var_CPU.sh", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -67,8 +52,6 @@ app.get('/varCPU', function(req, res) {
 app.get('/varCPUCores', function(req, res) {
     var result = []
     child = exec("./scripts/var_CPU_id.sh 0", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -79,8 +62,6 @@ app.get('/varCPUCores', function(req, res) {
     });
 
     child = exec("./scripts/var_CPU_id.sh 1", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -98,8 +79,6 @@ app.get('/varCPUCores', function(req, res) {
 //Obtención de la temperatura del HDD
 app.get('/CPUTemp', function(req, res) {
     child = exec("sudo hddtemp /dev/sda | awk '{print $4d}'", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -111,8 +90,6 @@ app.get('/CPUTemp', function(req, res) {
 //Obtención del nombre de la máquina.
 app.get('/hostname', function(req, res) {
     child = exec("hostname", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -123,8 +100,6 @@ app.get('/hostname', function(req, res) {
 //Apagado de la máquina.
 app.get('/shutdown', function() {
     child = exec("sudo shutdown -h 0", function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -132,6 +107,10 @@ app.get('/shutdown', function() {
     });
 
 })
+
+/*
+ * Configuración conexión
+ */
 
 // Carga una vista HTML simple donde irá nuestra Single App Page
 // Angular Manejará el Frontend
