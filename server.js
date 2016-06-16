@@ -30,7 +30,7 @@ app.use(methodOverride());
 
 //Obtención de la temperatura general de la CPU
 app.get('/CPUTemp', function(req, res) {
-    child = exec("./scripts/temperatura.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/temp_CPU.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -76,9 +76,11 @@ app.get('/varCPUCores', function(req, res) {
     res.send(JSON.stringify(result));
 })
 
+
+
 //Obtención de la temperatura del HDD
 app.get('/HDDTemp', function(req, res) {
-    child = exec("sudo hddtemp /dev/sda | awk '{print $4d}'", function(error, stdout, stderr) {
+    child = exec("./scripts/temp_HDD.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -88,13 +90,14 @@ app.get('/HDDTemp', function(req, res) {
 
 //Obtención del uso del HDD
 app.get('/varHDD', function(req, res) {
-    child = exec("df -h | grep /dev/mapper/fedora-root | awk '{print $5d}'", function(error, stdout, stderr) {
+    child = exec("./scripts/var_HDD.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
         res.end(stdout)
     });
 })
+
 
 
 //Obtención del nombre de la máquina.
