@@ -136,7 +136,7 @@ desired effect
 
                     <!-- Your Page Content Here -->
 
-                    <div class="row" ng-model="Juansal">
+                    <div class="row">
 
                         <div class="col-md-12">
                             <div class="box box-success">
@@ -195,25 +195,61 @@ desired effect
                         <!-- /.box -->
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="box box-warning">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">HDD</h3>
+                    <div class="row" ng-model="Juansal">
 
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
+                        <div class="col-md-12">
+                            <div class="box box-warning">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">HDD</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
                                 </div>
-                                <!-- /.box-tools -->
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-aqua">
+                                                <i class="ion ion-ios-gear-outline"></i>
+                                            </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Temperatura HDD</span>
+                                                <span class="info-box-number">{{ tempHDD }}
+                                                    <small>%</small>
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-red">
+                                                <i class="fa fa-cogs"></i>
+                                            </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Uso HDD</span>
+                                                <span class="info-box-number">{{ varHDD }}
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
                             </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                The body of the box
-                            </div>
-                            <!-- /.box-body -->
+                            <!-- /.box -->
                         </div>
-                        <!-- /.box -->
+
                     </div>
 
                     <a class="btn btn-app" ng-click="cargaDatosPantalla()">

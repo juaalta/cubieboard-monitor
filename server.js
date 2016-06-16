@@ -77,8 +77,18 @@ app.get('/varCPUCores', function(req, res) {
 })
 
 //Obtención de la temperatura del HDD
-app.get('/CPUTemp', function(req, res) {
+app.get('/HDDTemp', function(req, res) {
     child = exec("sudo hddtemp /dev/sda | awk '{print $4d}'", function(error, stdout, stderr) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout)
+    });
+})
+
+//Obtención del uso del HDD
+app.get('/varHDD', function(req, res) {
+    child = exec("df -h | grep /dev/mapper/fedora-root | awk '{print $5d}'", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
