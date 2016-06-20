@@ -195,7 +195,6 @@ desired effect
                         <!-- /.box -->
                     </div>
 
-
                     <div class="row">
 
                         <div class="col-md-12">
@@ -213,32 +212,16 @@ desired effect
                                 <!-- /.box-header -->
                                 <div class="box-body">
 
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-aqua">
-                                                <i class="ion ion-ios-gear-outline"></i>
-                                            </span>
-
-                                            <div class="info-box-content">
-                                                <span class="info-box-text">CPU Core 0</span>
-                                                <span class="info-box-number">{{ varCpuCore0 }}
-                                                    <small>%</small>
-                                                </span>
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                        <!-- /.info-box -->
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoCore in varCpuCore">
                                         <div class="info-box">
                                             <span class="info-box-icon bg-red">
                                                 <i class="fa fa-cogs"></i>
                                             </span>
 
                                             <div class="info-box-content">
-                                                <span class="info-box-text">CPU Core 1</span>
-                                                <span class="info-box-number">{{ varCpuCore1 }}
+                                                <span class="info-box-text">CPU Core
+                                                    {{ infoCore.core }}</span>
+                                                <span class="info-box-number">{{ infoCore.var }}
                                                     <small>%</small>
                                                 </span>
                                             </div>
@@ -247,6 +230,7 @@ desired effect
                                         <!-- /.info-box -->
                                     </div>
                                     <!-- /.col -->
+
                                 </div>
 
                             </div>

@@ -44,8 +44,7 @@
                   //console.log('varCoresCPU - Recibido: ' + data);
                   if (data!="")
                   {
-                    $scope.varCpuCore0=data[0].var;
-                    $scope.varCpuCore1=data[1].var;
+                    $scope.varCpuCore=data;
                   }
                 })
                 .error(function(data) {

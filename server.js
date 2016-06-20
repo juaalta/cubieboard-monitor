@@ -72,14 +72,23 @@ app.get('/varCoresCPU', function(req, res) {
                 var: stdout
             });
             res.contentType('application/json');
-            console.log("Resultado: " + result);
-            console.log("Resultado: " + JSON.stringify(result));
+            //console.log("Resultado: " + result);
+            //console.log("Resultado: " + JSON.stringify(result));
             res.send(JSON.stringify(result));
         });
     });
 
 })
 
+//Obtención del uso general de la CPU
+app.get('/CPUInfo', function(req, res) {
+    child = exec("cat /proc/cpuinfo", function(error, stdout, stderr) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout)
+    });
+})
 
 
 //Obtención de la temperatura del HDD
