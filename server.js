@@ -49,8 +49,12 @@ app.get('/varCPU', function(req, res) {
 })
 
 //Obtención del uso general de la CPU
-app.get('/varCPUCores', function(req, res) {
-    var result = []
+app.get('/varCoresCPU', function(req, res) {
+
+    console.log("Ejecutado: varCPUCores");
+
+    var result = [];
+
     child = exec("./scripts/var_CPU_id.sh 0", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
@@ -59,21 +63,21 @@ app.get('/varCPUCores', function(req, res) {
             core: 0,
             var: stdout
         });
-    });
-
-    child = exec("./scripts/var_CPU_id.sh 1", function(error, stdout, stderr) {
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
-        result.push({
-            core: 1,
-            var: stdout
+        child = exec("./scripts/var_CPU_id.sh 1", function(error2, stdout2, stderr2) {
+            if (error2 !== null) {
+                console.log('exec error: ' + error2);
+            }
+            result.push({
+                core: 1,
+                var: stdout
+            });
+            res.contentType('application/json');
+            console.log("Resultado: " + result);
+            console.log("Resultado: " + JSON.stringify(result));
+            res.send(JSON.stringify(result));
         });
     });
 
-    res.contentType('application/json');
-    console.log(result);
-    res.send(JSON.stringify(result));
 })
 
 

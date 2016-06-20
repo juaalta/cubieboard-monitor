@@ -195,6 +195,66 @@ desired effect
                         <!-- /.box -->
                     </div>
 
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Uso CPU</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-aqua">
+                                                <i class="ion ion-ios-gear-outline"></i>
+                                            </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">CPU Core 0</span>
+                                                <span class="info-box-number">{{ varCpuCore0 }}
+                                                    <small>%</small>
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-red">
+                                                <i class="fa fa-cogs"></i>
+                                            </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">CPU Core 1</span>
+                                                <span class="info-box-number">{{ varCpuCore1 }}
+                                                    <small>%</small>
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
                     <a class="btn btn-app" ng-click="cargaDatosPantalla()">
                         <i class="fa fa-repeat"></i>
                         Recargar Datos

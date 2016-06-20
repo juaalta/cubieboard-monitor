@@ -38,11 +38,26 @@
                 });
         }
 
+        $scope.cargaDatosCPUCores = function() {
+            $http.get('/varCoresCPU')
+                .success(function(data) {
+                  //console.log('varCoresCPU - Recibido: ' + data);
+                  if (data!="")
+                  {
+                    $scope.varCpuCore0=data[0].var;
+                    $scope.varCpuCore1=data[1].var;
+                  }
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+                });
+        }
 
         $scope.cargaDatosPantalla = function() {
             $scope.getHostname();
             $scope.cargaTemperaturaCPU();
             $scope.cargaDatosCPU();
+            $scope.cargaDatosCPUCores();
         }
 
 
