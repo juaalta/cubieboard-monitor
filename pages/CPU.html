@@ -161,7 +161,7 @@ desired effect
 
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Temperatura CPU</span>
-                                                <span class="info-box-number">{{ tempCPU }}
+                                                <span class="info-box-number">{{ CPU_Temp }}
                                                     <small>%</small>
                                                 </span>
                                             </div>
@@ -178,7 +178,7 @@ desired effect
 
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Uso CPU</span>
-                                                <span class="info-box-number">{{ varCPU }}
+                                                <span class="info-box-number">{{ CPU_Uso }}
                                                     <small>%</small>
                                                 </span>
                                             </div>
@@ -212,7 +212,7 @@ desired effect
                                 <!-- /.box-header -->
                                 <div class="box-body">
 
-                                    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoCore in varCpuCore">
+                                    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoCore in CPU_Uso_Cores">
                                         <div class="info-box">
                                             <span class="info-box-icon bg-red">
                                                 <i class="fa fa-cogs"></i>
@@ -230,6 +230,77 @@ desired effect
                                         <!-- /.info-box -->
                                     </div>
                                     <!-- /.col -->
+
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Temperatura CPU</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+
+                                    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoCore in CPU_Temp_Cores">
+                                        <div class="info-box">
+                                          <span class="info-box-icon bg-aqua">
+                                              <i class="ion ion-ios-gear-outline"></i>
+                                          </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">CPU Core
+                                                    {{ infoCore.core }}</span>
+                                                <span class="info-box-number">{{ infoCore.temp }}
+                                                    <small>%</small>
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Información CPU</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+
+                                    <pre style="font: inherit">{{ CPU_Info }}</pre>
 
                                 </div>
 

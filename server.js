@@ -29,7 +29,7 @@ app.use(methodOverride());
  */
 
 //Obtención de la temperatura general de la CPU
-app.get('/CPUTemp', function(req, res) {
+app.get('/CPU_Temp', function(req, res) {
     child = exec("./scripts/temp_CPU.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
@@ -39,7 +39,7 @@ app.get('/CPUTemp', function(req, res) {
 })
 
 //Obtención del uso general de la CPU
-app.get('/varCPU', function(req, res) {
+app.get('/CPU_Uso', function(req, res) {
     child = exec("./scripts/var_CPU.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
@@ -48,10 +48,8 @@ app.get('/varCPU', function(req, res) {
     });
 })
 
-//Obtención del uso general de la CPU
-app.get('/varCoresCPU', function(req, res) {
-
-    console.log("Ejecutado: varCPUCores");
+//Obtención del uso de la CPU por cada uno de sus 2 cores
+app.get('/CPU_Uso_Cores', function(req, res) {
 
     var result = [];
 
@@ -80,8 +78,38 @@ app.get('/varCoresCPU', function(req, res) {
 
 })
 
+//Obtención de la temperatura de la CPU por cada uno de sus 2 cores
+app.get('/CPU_Temp_Cores', function(req, res) {
+
+    var result = [];
+
+    child = exec("./scripts/temp_CPU_id.sh 0", function(error, stdout, stderr) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        result.push({
+            core: 0,
+            temp: stdout
+        });
+        child = exec("./scripts/temp_CPU_id.sh 1", function(error2, stdout2, stderr2) {
+            if (error2 !== null) {
+                console.log('exec error: ' + error2);
+            }
+            result.push({
+                core: 1,
+                temp: stdout
+            });
+            res.contentType('application/json');
+            //console.log("Resultado: " + result);
+            //console.log("Resultado: " + JSON.stringify(result));
+            res.send(JSON.stringify(result));
+        });
+    });
+
+})
+
 //Obtención del uso general de la CPU
-app.get('/CPUInfo', function(req, res) {
+app.get('/CPU_Info', function(req, res) {
     child = exec("cat /proc/cpuinfo", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
@@ -92,7 +120,7 @@ app.get('/CPUInfo', function(req, res) {
 
 
 //Obtención de la temperatura del HDD
-app.get('/HDDTemp', function(req, res) {
+app.get('/HDD_Temp', function(req, res) {
     child = exec("./scripts/temp_HDD.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
@@ -102,7 +130,7 @@ app.get('/HDDTemp', function(req, res) {
 })
 
 //Obtención del uso del HDD
-app.get('/varHDD', function(req, res) {
+app.get('/HDD_Uso', function(req, res) {
     child = exec("./scripts/var_HDD.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);

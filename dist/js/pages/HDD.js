@@ -18,9 +18,9 @@
         }
 
         $scope.cargaTemperaturaHDD = function() {
-            $http.get('/HDDTemp')
+            $http.get('/HDD_Temp')
                 .success(function(data) {
-                    $scope.tempHDD = data;
+                    $scope.HDD_Temp = data;
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);
@@ -28,9 +28,9 @@
         }
 
         $scope.cargaDatosHDD = function() {
-            $http.get('/varHDD')
+            $http.get('/HDD_Uso')
                 .success(function(data) {
-                    $scope.varHDD = data;
+                    $scope.HDD_Uso = data;
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);
