@@ -211,15 +211,24 @@ desired effect
                                 <div class="box-body">
 
                                     <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoPart in HDD_Uso_Particiones">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-red">
+                                        <div class="info-box bg-red">
+                                            <span class="info-box-icon">
                                                 <i class="fa fa-cogs"></i>
                                             </span>
 
                                             <div class="info-box-content">
-                                                <span class="info-box-text">{{ infoPart.particion }}
-                                                </span>
-                                                <span class="info-box-number">{{ infoPart.uso }}
+                                                <span class="info-box-text">{{ infoPart.particion }}</span>
+                                                <span class="info-box-number">{{ infoPart.usado }}
+                                                    Mb.</span>
+
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: {{ infoPart.uso }}"></div>
+                                                </div>
+                                                <span class="progress-description">
+                                                    {{ infoPart.uso }}
+                                                    de
+                                                    {{ infoPart.tamano }}
+                                                    Mb.
                                                 </span>
                                             </div>
                                             <!-- /.info-box-content -->
