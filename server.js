@@ -139,6 +139,15 @@ app.get('/HDD_Uso', function(req, res) {
     });
 })
 
+app.get('/HDD_smart', function(req, res) {
+    child = exec("sudo smartctl /dev/sda", function(error, stdout, stderr) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        res.end(stdout);
+    });
+})
+
 
 
 //Obtención del nombre de la máquina.

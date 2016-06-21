@@ -37,10 +37,23 @@
                 });
         }
 
+        $scope.cargaSmartHDD = function() {
+            $http.get('/HDD_smart')
+                .success(function(data) {
+                    $scope.HDD_smart = data;
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+                });
+        }
+
+
+
         $scope.cargaDatosPantalla = function() {
             $scope.getHostname();
             $scope.cargaTemperaturaHDD();
             $scope.cargaDatosHDD();
+            $scope.cargaSmartHDD();
         }
 
 
