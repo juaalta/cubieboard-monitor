@@ -80,30 +80,31 @@ app.get('/CPU_Uso_Cores', function(req, res) {
 
 //Obtención de la temperatura de la CPU por cada uno de sus 2 cores
 app.get('/CPU_Temp_Cores', function(req, res) {
-
-    var result = [];
-
-    child = exec("./scripts/temp_CPU_id.sh 0", function(error, stdout, stderr) {
+    child = exec("./scripts/temp_CPU_Cores.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
-        result.push({
-            core: 0,
-            temp: stdout
-        });
-        child = exec("./scripts/temp_CPU_id.sh 1", function(error2, stdout2, stderr2) {
-            if (error2 !== null) {
-                console.log('exec error: ' + error2);
+
+        var result = [];
+        var filas = stdout.split("\n");
+
+        if (filas.length > 0) {
+            //La última fila siempre esta vacía
+            for (i = 0; i < filas.length - 1; i++) {
+                var columnas = filas[i].split(" ");
+                if (columnas.length > 0) {
+                    result.push({
+                        core: columnas[0],
+                        temp: columnas[1]
+                    });
+                }
             }
-            result.push({
-                core: 1,
-                temp: stdout
-            });
-            res.contentType('application/json');
-            //console.log("Resultado: " + result);
-            //console.log("Resultado: " + JSON.stringify(result));
-            res.send(JSON.stringify(result));
-        });
+        }
+
+        res.contentType('application/json');
+        console.log("Resultado: " + result);
+        console.log("Resultado: " + JSON.stringify(result));
+        res.send(JSON.stringify(result));
     });
 
 })
@@ -117,6 +118,7 @@ app.get('/CPU_Info', function(req, res) {
         res.end(stdout)
     });
 })
+
 
 
 //Obtención de la temperatura del HDD
