@@ -47,6 +47,15 @@
                 });
         }
 
+        $scope.cargaDatosUsoParticiones = function() {
+            $http.get('/HDD_Uso_Particiones')
+                .success(function(data) {
+                    $scope.HDD_Uso_Particiones = data;
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+                });
+        }
 
 
         $scope.cargaDatosPantalla = function() {
@@ -54,6 +63,7 @@
             $scope.cargaTemperaturaHDD();
             $scope.cargaDatosHDD();
             $scope.cargaSmartHDD();
+            $scope.cargaDatosUsoParticiones();
         }
 
 

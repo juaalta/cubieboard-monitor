@@ -139,8 +139,9 @@ app.get('/HDD_Uso', function(req, res) {
     });
 })
 
+//Obtención de la información SMART del disco duro
 app.get('/HDD_smart', function(req, res) {
-    child = exec("sudo smartctl /dev/sda", function(error, stdout, stderr) {
+    child = exec("./scripts/smart_HDD.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -148,6 +149,37 @@ app.get('/HDD_smart', function(req, res) {
     });
 })
 
+//Obtención del uso del espacio de las particiones montadas
+app.get('/HDD_Uso_Particiones', function(req, res) {
+    child = exec("./scripts/var_particiones_montadas.sh", function(error, stdout, stderr) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+
+        var result = [];
+        var filas = stdout.split("\n");
+        //Se mira si es mayor que 1, ya que la primera línea contiene la cabecera y no nos interesa
+        if (filas.length > 1) {
+            //La última fila siempre esta vacía
+            for (i = 1; i < filas.length - 1; i++) {
+                var columnas = filas[i].split(" ");
+                if (columnas.length > 0) {
+                    result.push({
+                        particion: columnas[0],
+                        tamano: columnas[1],
+                        usado: columnas[2],
+                        uso: columnas[3]
+                    });
+                }
+            }
+        }
+
+        res.contentType('application/json');
+        //console.log("Resultado: " + result);
+        //console.log("Resultado: " + JSON.stringify(result));
+        res.send(JSON.stringify(result));
+    });
+})
 
 
 //Obtención del nombre de la máquina.

@@ -136,7 +136,7 @@ desired effect
 
                     <!-- Your Page Content Here -->
 
-                    <div class="row" >
+                    <div class="row">
 
                         <div class="col-md-12">
                             <div class="box box-warning">
@@ -198,7 +198,50 @@ desired effect
                         <div class="col-md-12">
                             <div class="box box-success">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Información CPU</h3>
+                                    <h3 class="box-title">Información uso particiones montadas</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+
+                                    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="infoPart in HDD_Uso_Particiones">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-red">
+                                                <i class="fa fa-cogs"></i>
+                                            </span>
+
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">{{ infoPart.particion }}
+                                                </span>
+                                                <span class="info-box-number">{{ infoPart.uso }}
+                                                </span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                        <!-- /.info-box -->
+                                    </div>
+                                    <!-- /.col -->
+
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Información SMART HDD</h3>
 
                                     <div class="box-tools pull-right">
                                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
