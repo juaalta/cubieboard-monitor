@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo smartctl /dev/sda
+smartctl -a /dev/sda

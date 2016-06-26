@@ -1,3 +1,3 @@
 #!/bin/bash
 
-df -h | grep /dev/mapper/fedora-root | awk '{print $5d}'
+df -h | grep /dev/sda1 | awk '{print $5d}'
