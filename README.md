@@ -12,7 +12,9 @@ node server.js
 
 o el siguiente comando
 
-
+``` bash
+npm start
+```
 
 Después de esto desde el navegador acceder al siguiente enlace:
 
