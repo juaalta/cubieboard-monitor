@@ -8,7 +8,7 @@
         }
 
         $scope.getHostname = function() {
-            $http.get('/hostname')
+            $http.get('/SYS_hostname')
                 .success(function(data) {
                     $scope.hostname = data;
                 })

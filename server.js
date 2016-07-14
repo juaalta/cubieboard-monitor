@@ -30,7 +30,7 @@ app.use(methodOverride());
 
 //Obtención de la temperatura general de la CPU
 app.get('/CPU_Temp', function(req, res) {
-    child = exec("./scripts/temp_CPU.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/CPU_Temp.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -40,7 +40,7 @@ app.get('/CPU_Temp', function(req, res) {
 
 //Obtención del uso general de la CPU
 app.get('/CPU_Uso', function(req, res) {
-    child = exec("./scripts/var_CPU.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/CPU_Uso.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -53,7 +53,7 @@ app.get('/CPU_Uso_Cores', function(req, res) {
 
     var result = [];
 
-    child = exec("./scripts/var_CPU_id.sh 0", function(error, stdout, stderr) {
+    child = exec("./scripts/CPU_Uso_Cores.sh 0", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -80,7 +80,7 @@ app.get('/CPU_Uso_Cores', function(req, res) {
 
 //Obtención de la temperatura de la CPU por cada uno de sus 2 cores
 app.get('/CPU_Temp_Cores', function(req, res) {
-    child = exec("./scripts/temp_CPU_Cores.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/CPU_Temp_Cores.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -111,7 +111,7 @@ app.get('/CPU_Temp_Cores', function(req, res) {
 
 //Obtención del uso general de la CPU
 app.get('/CPU_Info', function(req, res) {
-    child = exec("cat /proc/cpuinfo", function(error, stdout, stderr) {
+    child = exec("./scripts/CPU_Info.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -123,7 +123,7 @@ app.get('/CPU_Info', function(req, res) {
 
 //Obtención de la temperatura del HDD
 app.get('/HDD_Temp', function(req, res) {
-    child = exec("./scripts/temp_HDD.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/HDD_Temp.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -133,7 +133,7 @@ app.get('/HDD_Temp', function(req, res) {
 
 //Obtención del uso del HDD
 app.get('/HDD_Uso', function(req, res) {
-    child = exec("./scripts/var_HDD.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/HDD_Uso.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -143,7 +143,7 @@ app.get('/HDD_Uso', function(req, res) {
 
 //Obtención de la información SMART del disco duro
 app.get('/HDD_smart', function(req, res) {
-    child = exec("./scripts/smart_HDD.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/HDD_smart.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -153,7 +153,7 @@ app.get('/HDD_smart', function(req, res) {
 
 //Obtención del uso del espacio de las particiones montadas
 app.get('/HDD_Uso_Particiones', function(req, res) {
-    child = exec("./scripts/var_particiones_montadas.sh", function(error, stdout, stderr) {
+    child = exec("./scripts/HDD_Uso_Particiones.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -185,8 +185,8 @@ app.get('/HDD_Uso_Particiones', function(req, res) {
 
 
 //Obtención del nombre de la máquina.
-app.get('/hostname', function(req, res) {
-    child = exec("hostname", function(error, stdout, stderr) {
+app.get('/SYS_hostname', function(req, res) {
+    child = exec("./scripts/SYS_hostname.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -195,7 +195,7 @@ app.get('/hostname', function(req, res) {
 })
 
 //Apagado de la máquina.
-app.get('/shutdown', function() {
+app.get('/SYS_shutdown', function() {
     child = exec("sudo shutdown -h 0", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);

@@ -10,6 +10,10 @@ Para arrancarlo se ha de entrar en la carpeta en la que se ha descargado y/o des
 node server.js
 ```
 
+o el siguiente comando
+
+
+
 Después de esto desde el navegador acceder al siguiente enlace:
 
 [http://localhost:8081/index.html](http://localhost:8081/index.html)
