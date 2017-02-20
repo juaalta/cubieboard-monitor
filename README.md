@@ -1,5 +1,7 @@
 # Monitor basado en AngularJs y NodeJs para la Cubietruck (Cubieboard 3)
 
+[![Build Status](https://travis-ci.org/juaalta/cubieboard-monitor.svg?branch=master)](https://travis-ci.org/juaalta/cubieboard-monitor)
+
 Para realizarlo me he basado en la plantilla **[AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/index2.html)** de **[Almsaeed Studio](https://almsaeedstudio.com)**
 
 ## Uso
