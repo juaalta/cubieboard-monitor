@@ -1,7 +1,7 @@
 # Monitor basado en AngularJs y NodeJs para la Cubietruck (Cubieboard 3)
 
-[![Dependency Status](https://david-dm.org/juaalta/cubieboard-monitor.svg)](https://david-dm.org/juaalta/cubieboard-monitor)
-[![devDependency Status](https://david-dm.org/juaalta/cubieboard-monitor/dev-status.svg)](https://david-dm.org/juaalta/cubieboard-monitor?type=dev)
+[![dependencies Status](https://david-dm.org/juaalta/cubieboard-monitor/status.svg)](https://david-dm.org/juaalta/cubieboard-monitor)
+[![devDependencies Status](https://david-dm.org/juaalta/cubieboard-monitor/dev-status.svg)](https://david-dm.org/juaalta/cubieboard-monitor?type=dev)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/704/badge)](https://bestpractices.coreinfrastructure.org/projects/704)
 [![Build Status](https://travis-ci.org/juaalta/cubieboard-monitor.svg?branch=master)](https://travis-ci.org/juaalta/cubieboard-monitor)
 [![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)](https://choosealicense.com/licenses/mit/)
