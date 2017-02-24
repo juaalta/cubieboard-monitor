@@ -22,7 +22,7 @@ describe('Test cubieboard-monitor', function() {
     after(function(done){
         server.stop();
         done();
-    }
+    });
     // use describe to give a title to your test suite, in this case the tile is "Monitor"
     // and then specify a function in which we are going to declare all the tests
     // we want to run. Each test starts with the function it() and as a first argument
