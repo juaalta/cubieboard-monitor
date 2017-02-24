@@ -10,17 +10,17 @@ var app = require("../server.js");
 describe('Test cubieboard-monitor', function() {
     var server;
     var port;
-    var url;;
+    var url;
 
     // within before() you can run all the operations that are needed to setup your tests. In this case
     before(function(done) {
         server = app.listen(0, done);
         port = server.address.port();
         url = 'http://localhost:'+port;
-        done();
+        //done();
     });
     after(function(done){
-        server.stop();
+        //server.stop();
         done();
     });
     // use describe to give a title to your test suite, in this case the tile is "Monitor"
