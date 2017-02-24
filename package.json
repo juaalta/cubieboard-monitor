@@ -11,7 +11,7 @@
         "url": "git://github.com/juaalta/cubieboard-monitor.git"
     },
     "scripts": {
-        "start": "node server.js",
+        "start": "node server.js &",
         "test": "mocha"
     },
     "devDependencies": {
