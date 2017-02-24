@@ -2,7 +2,7 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var app = require("./server");
+var app = require("./server.js");
 
 var server = app.listen(0);
 var port = server.address().port;
