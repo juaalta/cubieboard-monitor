@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
-var fs = require("fs");
-var util = require('util')
+//var fs = require("fs");
+//var util = require('util')
 var exec = require('child_process').exec;
 var child;
 
 var logger = require('express-logger');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 /*
@@ -20,7 +20,7 @@ app.use(logger({
     path: "logfile.txt"
 }));
 //Change html
-app.use(bodyParser());
+//app.use(bodyParser());
 //For delete and put API methods
 app.use(methodOverride());
 
@@ -61,7 +61,7 @@ app.get('/CPU_Uso_Cores', function(req, res) {
             core: 0,
             var: stdout
         });
-        child = exec("./scripts/var_CPU_id.sh 1", function(error2, stdout2, stderr2) {
+        child = exec("./scripts/CPU_Uso_Cores.sh 1", function(error2, stdout2, stderr2) {
             if (error2 !== null) {
                 console.log('exec error: ' + error2);
             }
@@ -196,7 +196,7 @@ app.get('/SYS_hostname', function(req, res) {
 
 //Apagado de la máquina.
 app.get('/SYS_shutdown', function() {
-    child = exec("sudo shutdown -h 0", function(error, stdout, stderr) {
+    child = exec("./scripts/SYS_shutdown.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -212,7 +212,7 @@ app.get('/SYS_shutdown', function() {
 // Carga una vista HTML simple donde irá nuestra Single App Page
 // Angular Manejará el Frontend
 app.get('*', function(req, res) {
-    res.sendfile('./index.html');
+    res.sendFile('./index.html');
 });
 
 //Configuración del puerto en el que se serviran los servicios web.

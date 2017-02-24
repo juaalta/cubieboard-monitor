@@ -1,3 +1,5 @@
 #!/bin/bash
 
-smartctl -a /dev/sda
+sudo smartctl -a /dev/sda
+
+exit 0
