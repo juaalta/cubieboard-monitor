@@ -4,8 +4,8 @@ var request = require('supertest');
 
 var app = require("../server.js");
 
-var server = app.listen(0);
-var port = server.address().port;
+//var server = app.listen(0);
+//var port = server.address().port;
 
 describe('Test cubieboard-monitor', function() {
     var server;
