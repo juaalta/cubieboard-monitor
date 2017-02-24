@@ -2,13 +2,27 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
+var app = require("./server");
+
+var server = app.listen(0);
+var port = server.address().port;
+
 describe('Test cubieboard-monitor', function() {
-    var url = 'http://localhost:8081';
+    var server;
+    var port;
+    var url;;
 
     // within before() you can run all the operations that are needed to setup your tests. In this case
     before(function(done) {
+        server = app.listen(0, done);
+        port = server.address.port();
+        url = 'http://localhost:'+port;
         done();
     });
+    after(function(done){
+        server.stop();
+        done();
+    }
     // use describe to give a title to your test suite, in this case the tile is "Monitor"
     // and then specify a function in which we are going to declare all the tests
     // we want to run. Each test starts with the function it() and as a first argument
