@@ -215,14 +215,36 @@ app.get('*', function(req, res) {
     res.sendFile('./index.html');
 });
 
-//Configuración del puerto en el que se serviran los servicios web.
-var server = app.listen(8081, function() {
-
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log("Servidor rest arrancado en: http://%s:%s", host, port)
-
-})
 
 
+// Arranque del servidor server
+var server;
+var host;
+var port = 8081;
+
+var boot = function() {
+    server = app.listen(port, function() {
+
+        host = server.address().address
+
+        console.log("Servidor rest arrancado en: http://%s:%s", host, port)
+
+    })
+
+}
+
+
+// Shutdown function
+var shutdown = function() {
+    server.close();
+}
+
+// If main, boot else export boot and shutdown
+if (require.main === module) {
+    boot();
+} else {
+    console.info('Running app as a module');
+    exports.boot = boot;
+    exports.shutdown = shutdown;
+    exports.port = port;
+}

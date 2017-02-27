@@ -4,8 +4,6 @@ var request = require('supertest');
 
 var app = require("../server.js");
 
-//var server = app.listen(0);
-//var port = server.address().port;
 
 describe('Test cubieboard-monitor', function() {
     var server;
@@ -14,15 +12,12 @@ describe('Test cubieboard-monitor', function() {
 
     // within before() you can run all the operations that are needed to setup your tests. In this case
     before(function(done) {
-        server = app.listen(0, done);
-        port = server.address.port();
-        url = 'http://localhost:'+port;
-        //done();
-    });
-    after(function(done){
-        //server.stop();
+        server = app.boot();
+        port = app.port;
+        url = 'http://localhost:' + port;
         done();
     });
+
     // use describe to give a title to your test suite, in this case the tile is "Monitor"
     // and then specify a function in which we are going to declare all the tests
     // we want to run. Each test starts with the function it() and as a first argument
@@ -30,7 +25,7 @@ describe('Test cubieboard-monitor', function() {
     // specify a function that takes a single parameter, "done", that we will use
     // to specify when our test is completed, and that's what makes easy
     // to perform async test!
-    describe('Monitor', function() {
+    describe('Monitor:', function() {
         it('debería de devolver el hostname', function(done) {
 
             // once we have specified the info we want to send to the server via POST verb,
@@ -137,4 +132,10 @@ describe('Test cubieboard-monitor', function() {
         });
 
     });
+
+
+    after(function() {
+        app.shutdown();
+    });
+
 });
