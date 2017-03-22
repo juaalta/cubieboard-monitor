@@ -14,12 +14,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Añadida integración con [Synk](https://snyk.io/test/github/juaalta/cubieboard-monitor) para conocer el estado de las vulnerabilidades de la aplicación.
 - Añadida integración de [CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/704) para intentar realizar unas mejores prácticas a la hora de crear y mantener el proyecto.
 - Añadido fichero CHANGELOG.md y rellenado con los datos hasta la actualidad.
+- Añadido selección de carpeta de scripts a partir de configuración.
+- Añadido script a package.json para arranque en Cubieboard.
 
 ### Changed
 
 - Modificación del arranque de la aplicación para que el travis-ci pueda realizar los test de forma automática.
 - Modificación del ficher README.md para añadir las insignias de estado de las integraciones con Travis, David, Synk y CII Best Practices, además de la insigina de estado del la licencia de la aplicación.
 - Borrados todos los ficheros que son innecesarios para el proyecto.
+- Borrados ficheros de scripts de carpeta raiz de scripts.
 
 ## [1.1.0] - 2016-07-15
 

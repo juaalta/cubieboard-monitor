@@ -9,6 +9,10 @@ var logger = require('express-logger');
 //var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
+var config = require('config'); //we load the db location from the JSON files
+
+var ScriptsDir="./scripts/"+config.get("ScriptsDirectory")+"/";
+
 /*
  * Configuración
  */
@@ -30,7 +34,7 @@ app.use(methodOverride());
 
 //Obtención de la temperatura general de la CPU
 app.get('/CPU_Temp', function(req, res) {
-    child = exec("./scripts/CPU_Temp.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"CPU_Temp.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -40,7 +44,7 @@ app.get('/CPU_Temp', function(req, res) {
 
 //Obtención del uso general de la CPU
 app.get('/CPU_Uso', function(req, res) {
-    child = exec("./scripts/CPU_Uso.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"CPU_Uso.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -53,7 +57,9 @@ app.get('/CPU_Uso_Cores', function(req, res) {
 
     var result = [];
 
-    child = exec("./scripts/CPU_Uso_Cores.sh 0", function(error, stdout, stderr) {
+    console.log("Carpeta logs: "+ScriptsDir);
+
+    child = exec(ScriptsDir+"CPU_Uso_Cores.sh 0", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -61,7 +67,7 @@ app.get('/CPU_Uso_Cores', function(req, res) {
             core: 0,
             var: stdout
         });
-        child = exec("./scripts/CPU_Uso_Cores.sh 1", function(error2, stdout2, stderr2) {
+        child = exec(ScriptsDir+"CPU_Uso_Cores.sh 1", function(error2, stdout2, stderr2) {
             if (error2 !== null) {
                 console.log('exec error: ' + error2);
             }
@@ -80,7 +86,7 @@ app.get('/CPU_Uso_Cores', function(req, res) {
 
 //Obtención de la temperatura de la CPU por cada uno de sus 2 cores
 app.get('/CPU_Temp_Cores', function(req, res) {
-    child = exec("./scripts/CPU_Temp_Cores.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"CPU_Temp_Cores.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -102,8 +108,8 @@ app.get('/CPU_Temp_Cores', function(req, res) {
         }
 
         res.contentType('application/json');
-        console.log("Resultado: " + result);
-        console.log("Resultado: " + JSON.stringify(result));
+        //console.log("Resultado: " + result);
+        //console.log("Resultado: " + JSON.stringify(result));
         res.send(JSON.stringify(result));
     });
 
@@ -111,7 +117,7 @@ app.get('/CPU_Temp_Cores', function(req, res) {
 
 //Obtención del uso general de la CPU
 app.get('/CPU_Info', function(req, res) {
-    child = exec("./scripts/CPU_Info.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"CPU_Info.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -123,7 +129,7 @@ app.get('/CPU_Info', function(req, res) {
 
 //Obtención de la temperatura del HDD
 app.get('/HDD_Temp', function(req, res) {
-    child = exec("./scripts/HDD_Temp.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"HDD_Temp.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -133,7 +139,7 @@ app.get('/HDD_Temp', function(req, res) {
 
 //Obtención del uso del HDD
 app.get('/HDD_Uso', function(req, res) {
-    child = exec("./scripts/HDD_Uso.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"HDD_Uso.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -143,7 +149,7 @@ app.get('/HDD_Uso', function(req, res) {
 
 //Obtención de la información SMART del disco duro
 app.get('/HDD_smart', function(req, res) {
-    child = exec("./scripts/HDD_smart.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"HDD_smart.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -153,7 +159,7 @@ app.get('/HDD_smart', function(req, res) {
 
 //Obtención del uso del espacio de las particiones montadas
 app.get('/HDD_Uso_Particiones', function(req, res) {
-    child = exec("./scripts/HDD_Uso_Particiones.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"HDD_Uso_Particiones.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -186,7 +192,7 @@ app.get('/HDD_Uso_Particiones', function(req, res) {
 
 //Obtención del nombre de la máquina.
 app.get('/SYS_hostname', function(req, res) {
-    child = exec("./scripts/SYS_hostname.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"SYS_hostname.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }
@@ -196,7 +202,7 @@ app.get('/SYS_hostname', function(req, res) {
 
 //Apagado de la máquina.
 app.get('/SYS_shutdown', function() {
-    child = exec("./scripts/SYS_shutdown.sh", function(error, stdout, stderr) {
+    child = exec(ScriptsDir+"SYS_shutdown.sh", function(error, stdout, stderr) {
         if (error !== null) {
             console.log('exec error: ' + error);
         }

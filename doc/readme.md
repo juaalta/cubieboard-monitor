@@ -6,6 +6,8 @@ Para realizarlo me he basado en la plantilla **[AdminLTE](https://almsaeedstudio
 
 Para arrancarlo se ha de entrar en la carpeta en la que se ha descargado y/o descomprimido y ejecutar el siguiente comando:
 
+- Para un linux normal
+
 ``` bash
 node server.js
 ```
@@ -14,6 +16,12 @@ o el siguiente comando
 
 ``` bash
 npm start
+```
+
+- Para la Cubieboard
+
+``` bash
+npm run start-cubieboard
 ```
 
 Después de esto desde el navegador acceder al siguiente enlace:

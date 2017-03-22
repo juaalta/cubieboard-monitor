@@ -1,6 +1,6 @@
 {
   "name": "cubieboard-monitor",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Monitor basado en AngularJs y NodeJs para la Cubietruck (Cubieboard 3)",
   "author": "Juan Salvador Aleixandre Talens",
   "homepage": "https://github.com/juaalta/cubieboard-monitor",
@@ -11,8 +11,9 @@
     "url": "git://github.com/juaalta/cubieboard-monitor.git"
   },
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha",
+    "start": "export NODE_ENV=dev && node server.js",
+    "start-cubieboard": "export NODE_ENV=cubieboard && node server.js",
+    "test": "export NODE_ENV=test && mocha",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
@@ -26,7 +27,8 @@
     "express-logger": "",
     "body-parser": "",
     "method-override": "",
-    "snyk": "^1.25.1"
+    "snyk": "^1.25.1",
+    "config": ""
   },
   "snyk": true
 }
