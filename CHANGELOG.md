@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+
+
+### Changed
+
+
+
+## [1.2.0] - 2017-03-23
+
+### Added
+
 - Añadidos test unitarios, mediante Mocha y Supertest, de los servicios rest.
 - Añadida integración con [Travis CI](https://travis-ci.org/juaalta/cubieboard-monitor) para añadir al proyecto integración contínua.
 - Añadida integración con [David](https://david-dm.org/juaalta/cubieboard-monitor) para conocer el estado de las dependencias del proyecto.
