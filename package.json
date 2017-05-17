@@ -26,6 +26,7 @@
     "body-parser": "",
     "config": "",
     "express": ">=3.11 <4 || >=4.5",
+    "express-logger": "",
     "method-override": "",
     "snyk": "^1.25.2"
   },
