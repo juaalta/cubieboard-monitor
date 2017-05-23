@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.7.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:express:20140912':
@@ -17,3 +17,14 @@ patch:
   'npm:qs:20140806-1':
     - grunt-contrib-watch > tiny-lr-fork > qs:
         patched: '2017-05-16T21:39:15.889Z'
+  'npm:ms:20170412':
+    - express > debug > ms:
+        patched: '2017-05-23T00:54:07.799Z'
+    - express > send > debug > ms:
+        patched: '2017-05-23T00:54:07.799Z'
+    - express > serve-static > send > debug > ms:
+        patched: '2017-05-23T00:54:07.799Z'
+    - express > send > ms:
+        patched: '2017-05-23T00:54:07.799Z'
+    - express > serve-static > send > ms:
+        patched: '2017-05-23T00:54:07.799Z'
