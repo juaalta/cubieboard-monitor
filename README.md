@@ -11,10 +11,22 @@ Para realizarlo me he basado en la plantilla **[AdminLTE](https://almsaeedstudio
 
 ## Uso
 
-Para arrancarlo se ha de entrar en la carpeta en la que se ha descargado y/o descomprimido y ejecutar el siguiente comando:
+Para arrancarlo en la Cubieboard se ha de entrar en la carpeta en la que se ha descargado y/o descomprimido y ejecutar el siguiente comando:
 
 ``` bash
-node server.js
+export NODE_ENV=cubieboard && node server.js
+```
+
+o el siguiente comando
+
+``` bash
+npm start-cubieboard
+```
+
+Para arrancarlo en un linux:
+
+``` bash
+export NODE_ENV=dev && node server.js
 ```
 
 o el siguiente comando
