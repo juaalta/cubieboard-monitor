@@ -1,11 +1,23 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:express:20140912':
     - express-logger > express:
-        reason: None given
-        expires: '2017-06-15T21:47:18.438Z'
+        reason: Sin Solución
+        expires: '2019-05-17T21:03:37.846Z'
+  SNYK-JS-JSYAML-174129:
+    - mocha > js-yaml:
+        reason: Sin solución
+        expires: '2019-05-17T21:03:37.846Z'
+  'npm:connect:20120107':
+    - express-logger > express > connect:
+        reason: Sin solución
+        expires: '2019-05-17T21:03:37.846Z'
+  'npm:connect:20130701':
+    - express-logger > express > connect:
+        reason: Sin solución
+        expires: '2019-05-17T21:03:37.846Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:minimatch:20160620':
