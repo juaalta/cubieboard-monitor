@@ -218,7 +218,7 @@ app.get('/SYS_shutdown', function() {
 // Carga una vista HTML simple donde irá nuestra Single App Page
 // Angular Manejará el Frontend
 app.get('*', function(req, res) {
-    res.sendFile('./index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 
