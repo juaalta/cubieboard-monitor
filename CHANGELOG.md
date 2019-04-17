@@ -10,6 +10,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+
+## 1.3.0 - 2019-04-17
+
+### Changed
+
 - Actualizada la versión de AngularJs a la 1.7.8.
 - Actualizadas las librerías usadas por el proyecto.
 - Actualizado el código del front para que se solucionen los bugs aparecidos en la actualización de las librerías.
@@ -36,9 +49,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Borrados todos los ficheros que son innecesarios para el proyecto.
 - Borrados ficheros de scripts de carpeta raiz de scripts.
 
-## 1.1.0 - 2016-07-15
 
-### Added
+## 1.1.0 - 2016-07-15
 
 ### Changed
 
@@ -49,10 +61,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Todos los comandos llamados se han pasado a scripts.
 
+
 ## 1.0.0 - 2016-06-28
 
 ### Added
 
 - En esta versión se monitoriza la temperatura y el uso de CPU y discos duros.
 
-### Changed
