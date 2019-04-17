@@ -8,72 +8,78 @@
         }
 
         $scope.getHostname = function() {
-            $http.get('/SYS_hostname')
-                .success(function(data) {
-                    $scope.hostname = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                method: 'GET',
+                url: '/SYS_hostname'
+             }).then(function (response){
+                $scope.hostname = response.data;
+             },function (error){
+                console.log('Error: ' + error.data || 'Request failed');
+             });
         }
 
 
         $scope.cargaTemperaturaCPU = function() {
-            $http.get('/CPU_Temp')
-                .success(function(data) {
-                    $scope.CPU_Temp = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                $http({
+                    method: 'GET',
+                    url: '/CPU_Temp'
+                 }).then(function (response){
+                    $scope.CPU_Temp = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosCPU = function() {
-            $http.get('/CPU_Uso')
-                .success(function(data) {
-                    $scope.CPU_Uso = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/CPU_Uso'
+                 }).then(function (response){
+                    $scope.CPU_Uso = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosCPUCores = function() {
-            $http.get('/CPU_Uso_Cores')
-                .success(function(data) {
-                  //console.log('varCoresCPU - Recibido: ' + data);
-                  if (data!="")
+            $http({
+                    method: 'GET',
+                    url: '/CPU_Uso_Cores'
+                 }).then(function (response){
+                     //console.log('varCoresCPU - Recibido: ' + data);
+                  if (response.data!="")
                   {
-                    $scope.CPU_Uso_Cores=data;
+                    $scope.CPU_Uso_Cores = response.data;
                   }
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaTemperaturaCPUCores = function() {
-            $http.get('/CPU_Temp_Cores')
-                .success(function(data) {
-                  //console.log('varCoresCPU - Recibido: ' + data);
-                  if (data!="")
+            $http({
+                    method: 'GET',
+                    url: '/CPU_Temp_Cores'
+                 }).then(function (response){
+              //console.log('varCoresCPU - Recibido: ' + data);
+              if (response.data!="")
                   {
-                    $scope.CPU_Temp_Cores=data;
+                    $scope.CPU_Temp_Cores = response.data;
                   }
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaInformacionCPU = function() {
-            $http.get('/CPU_Info')
-                .success(function(data) {
-                    $scope.CPU_Info=data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                $http({
+                    method: 'GET',
+                    url: '/CPU_Info'
+                 }).then(function (response){
+                    $scope.CPU_Info = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
 

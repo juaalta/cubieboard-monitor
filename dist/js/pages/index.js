@@ -8,55 +8,59 @@
         }
 
         $scope.getHostname = function() {
-            $http.get('/SYS_hostname')
-                .success(function(data) {
-                    $scope.hostname = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                method: 'GET',
+                url: '/SYS_hostname'
+             }).then(function (response){
+                $scope.hostname = response.data;
+             },function (error){
+                console.log('Error: ' + error.data || 'Request failed');
+             });
         }
 
-
         $scope.cargaTemperaturaCPU = function() {
-            $http.get('/CPU_Temp')
-                .success(function(data) {
-                    $scope.CPU_Temp = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                $http({
+                    method: 'GET',
+                    url: '/CPU_Temp'
+                 }).then(function (response){
+                    $scope.CPU_Temp = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosCPU = function() {
-            $http.get('/CPU_Uso')
-                .success(function(data) {
-                    $scope.CPU_Uso = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+                $http({
+                    method: 'GET',
+                    url: '/CPU_Uso'
+                 }).then(function (response){
+                    $scope.CPU_Uso = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
 
         $scope.cargaTemperaturaHDD = function() {
-            $http.get('/HDD_Temp')
-                .success(function(data) {
-                    $scope.HDD_Temp = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_Temp'
+                 }).then(function (response){
+                    $scope.HDD_Temp = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosHDD = function() {
-            $http.get('/HDD_Uso')
-                .success(function(data) {
-                    $scope.HDD_Uso = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_Uso'
+                 }).then(function (response){
+                    $scope.HDD_Uso = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosPantalla = function() {

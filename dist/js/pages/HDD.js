@@ -8,53 +8,58 @@
         }
 
         $scope.getHostname = function() {
-            $http.get('/SYS_hostname')
-                .success(function(data) {
-                    $scope.hostname = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                method: 'GET',
+                url: '/SYS_hostname'
+             }).then(function (response){
+                $scope.hostname = response.data;
+             },function (error){
+                console.log('Error: ' + error.data || 'Request failed');
+             });
         }
 
         $scope.cargaTemperaturaHDD = function() {
-            $http.get('/HDD_Temp')
-                .success(function(data) {
-                    $scope.HDD_Temp = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_Temp'
+                 }).then(function (response){
+                    $scope.HDD_Temp = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosHDD = function() {
-            $http.get('/HDD_Uso')
-                .success(function(data) {
-                    $scope.HDD_Uso = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_Uso'
+                 }).then(function (response){
+                    $scope.HDD_Uso = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaSmartHDD = function() {
-            $http.get('/HDD_smart')
-                .success(function(data) {
-                    $scope.HDD_smart = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_smart'
+                 }).then(function (response){
+                    $scope.HDD_smart = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
         $scope.cargaDatosUsoParticiones = function() {
-            $http.get('/HDD_Uso_Particiones')
-                .success(function(data) {
-                    $scope.HDD_Uso_Particiones = data;
-                })
-                .error(function(data) {
-                    console.log('Error: ' + data);
-                });
+            $http({
+                    method: 'GET',
+                    url: '/HDD_Uso_Particiones'
+                 }).then(function (response){
+                    $scope.HDD_Uso_Particiones = response.data;
+                 },function (error){
+                    console.log('Error: ' + error.data || 'Request failed');
+                 });
         }
 
 
