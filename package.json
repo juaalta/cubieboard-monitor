@@ -13,7 +13,7 @@
   "scripts": {
     "start": "export NODE_ENV=dev && node server.js",
     "start-cubieboard": "export NODE_ENV=cubieboard && node server.js",
-    "test": "export NODE_ENV=test && mocha",
+    "test": "export NODE_ENV=test && mocha --exit",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
