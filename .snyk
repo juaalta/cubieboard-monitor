@@ -43,3 +43,26 @@ patch:
   'npm:debug:20170905':
     - method-override > debug:
         patched: '2017-09-26T17:13:02.222Z'
+  SNYK-JS-LODASH-450202:
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > snyk-php-plugin > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - mocha > yargs-unparser > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-09T21:05:36.808Z'
