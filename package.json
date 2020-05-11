@@ -31,7 +31,7 @@
     "method-override": "^2.3.10",
     "mocha": "^7.1.1",
     "should": "^13.2.3",
-    "snyk": "^1.290.1",
+    "snyk": "^1.319.0",
     "supertest": "^4.0.2"
   },
   "snyk": true
