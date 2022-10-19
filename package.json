@@ -18,7 +18,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
-    "mocha": "8.2.0",
+    "mocha": "10.1.0",
     "should": "",
     "supertest": "",
     "sync": "^0.2.5"
@@ -29,7 +29,7 @@
     "express": "^4.16.4",
     "express-logger": "0.0.3",
     "method-override": "^2.3.10",
-    "mocha": "^8.2.0",
+    "mocha": "^10.1.0",
     "should": "^13.2.3",
     "snyk": "^1.685.0",
     "supertest": "^4.0.2"
