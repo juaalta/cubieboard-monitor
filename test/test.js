@@ -137,5 +137,5 @@ describe('Test cubieboard-monitor', function() {
     after(function() {
         app.shutdown();
     });
-
+    
 });
