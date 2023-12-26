@@ -20,7 +20,7 @@
   "devDependencies": {
     "mocha": "10.1.0",
     "should": "",
-    "supertest": "",
+    "supertest": "6.2.0",
     "sync": "^0.2.5"
   },
   "dependencies": {
@@ -32,7 +32,7 @@
     "mocha": "^10.1.0",
     "should": "^13.2.3",
     "snyk": "^1.1064.0",
-    "supertest": "^4.0.2"
+    "supertest": "^6.2.0"
   },
   "snyk": true
 }
